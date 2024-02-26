@@ -1,0 +1,359 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+  overflow: hidden;
+}
+
+.d-flex2 {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.fullHeight .ant-space-item {
+  height: 100% !important;
+}
+
+.customCardFullWidth .ant-card-body {
+  width: 100% !important;
+}
+
+.paCard .ant-card-body {
+  width: 100% !important;
+  padding: 10px !important;
+}
+
+html body {
+  width: 100% !important;
+}
+
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-value-wrap {
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.editable-row:hover .editable-cell-value-wrap {
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.scrollable-container {
+  height: calc(
+    100vh - 64px
+  ); /* Subtract the height of the Affix component from the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+}
+
+.sizingCard .ant-card-body {
+  padding: 0.4rem !important;
+}
+
+.sizingCard2 .ant-card-body {
+  padding: 0rem !important;
+}
+
+.billableHours .ant-card-body {
+  padding: 0 !important;
+}
+
+.ant-divider-vertical {
+  height: 2.9em !important;
+}
+
+.NHCard .ant-card-body {
+  padding: 0.3rem !important;
+  min-height: 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NHCard .ant-card-body p {
+  margin-bottom: 0.1rem !important;
+}
+
+.NHCard2 .ant-card-body {
+  min-height: 5rem;
+  padding: 0 !important;
+  text-align: center;
+}
+
+.NHCard2 .ant-card-body p {
+  margin-bottom: 0.1rem !important;
+}
+
+.NHCard2 .ant-statistic .ant-statistic-content {
+  color: #022d42;
+}
+
+.NhGraphsCard .ant-card-body {
+  padding: 10px !important;
+  height: 100% !important;
+}
+
+.spacing {
+  margin-bottom: 0.4rem !important;
+}
+
+.clientInsightsBar .ant-card-body {
+  height: 100% !important;
+  padding: 1rem 0 0 0;
+}
+
+/* .ant-breadcrumb-link{
+    color: white !important;
+} */
+
+.ant-divider-horizontal {
+  margin: 0.7rem 0 0.5rem 1.5rem;
+}
+
+.cdlsummarygraphs .ant-card-body {
+  padding-bottom: 0 !important;
+}
+
+.NbhSizingTbl .ant-table-thead .ant-table-cell {
+  background-color: #27a6a4;
+  color: white;
+}
+
+.inputCenter .ant-input-number-input-wrap input {
+  text-align: center !important;
+}
+
+.allTrackRows {
+  background-color: #eaeaea;
+}
+
+.CDLSizingTbl .ant-table.ant-table-small .ant-table-tbody > tr > td {
+  padding: 5px 8px;
+  font-size: smaller;
+}
+
+.CDLSizingTbl .ant-table-thead .ant-table-cell {
+  background-color: #27a6a4;
+  color: white;
+  font-size: smaller;
+}
+
+.CDLSizingTbl2 .ant-table-cell[colspan="6"]{
+    background-color: #ffffff !important;
+}
+.fixed-row1 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.fixed-row2 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 2.19rem;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.fixed-row3 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 4.38rem;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.adhoc-fixed-row1 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.adhoc-fixed-row2 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 1.82rem;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.adhoc-fixed-row3 {
+  background-color: #f0f0f0; /* Optional: Set the background color for the fixed rows */
+  position: sticky;
+  bottom: 3.64rem;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.ant-layout .ant-layout-sider-children .ant-menu.ant-menu-inline-collapsed {
+  width: 100% !important;
+}
+
+/* .ant-menu-horizontal >.ant-menu-item-selected::after{
+    border-bottom-color: #ffffff !important;
+    color: white !important;
+} */
+
+/* .ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected {
+    border-bottom-color: #ffffff !important;
+    color: white !important;
+} */
+
+#mainMenu .ant-menu {
+  font-size: 14px !important;
+}
+
+.ant-menu-dark.ant-menu-root.ant-menu-inline {
+  color: #fff;
+}
+
+.ant-menu .ant-menu-item .ant-menu-item-icon {
+  color: #fff;
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon {
+  color: #27a6a4 !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  color: #27a6a4 !important;
+  background: none !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #27a6a4 !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after {
+  border-bottom-color: #27a6a4 !important;
+}
+
+/* .ant-layout .ant-layout-has-sider{
+    height: 100% !important;
+} */
+
+.ant-layout.ant-layout-has-sider {
+  height: 100% !important;
+}
+
+.ant-menu-inline .ant-menu-item {
+  padding-inline: 0 !important;
+  margin-inline: 0 !important;
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item {
+  margin-left: 0.8rem !important;
+}
+
+.ant-menu-item:not(.ant-menu-item-selected):active {
+  background: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  border-radius: 50px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f2f2f200;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(155, 154, 154, 0.644);
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.726);
+  transition: 0.2s;
+}
+
+/* .NbhSizingTbl .ant-table-wrapper .ant-table.ant-table-small .ant-table-tbody>tr>td{
+    padding: 0 2px !important;
+} */
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after {
+  border-bottom-color: #27a6a4 !important;
+}
+
+.ant-table-wrapper .ant-table-row-expand-icon-spaced {
+  display: none;
+}
+
+.ant-table-wrapper .ant-table-filter-trigger {
+  color: white !important;
+  background: none !important;
+}
+
+.ant-upload-wrapper .ant-upload-drag p.ant-upload-drag-icon .anticon {
+  color: #27a6a4;
+}
+
+.ant-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover {
+  border-color: #27a6a4;
+}
+
+.ant-select :hover {
+  border-color: #27a6a4;
+}
+
+.ant-upload-wrapper .ant-upload-list {
+  width: 80% !important;
+}
+
+.skillsetForm .ant-form-item {
+  height: 2rem !important;
+  margin-bottom: 12px !important;
+}
+
+.ant-table-thead > tr > th {
+  font-size: small !important;
+}
+
+.headerDdns {
+  margin: 0 1rem 0 1rem !important;
+  font-weight: 500 !important;
+}
+
+.RgnPModal {
+  margin-left: 2.2rem !important;
+  font-weight: 600;
+  margin-bottom: 0.2rem !important;
+}
+
+.ant-modal .ant-modal-footer {
+  text-align: center;
+}
+
+.ant-popover .ant-popover-inner {
+  background-color: #efefef;
+}
+
+.ant-btn-primary:disabled{
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+button.iconColor{
+  color: #000 !important;
+}

@@ -1,0 +1,15 @@
+.loginCard {
+  background-color: rgba(245, 245, 245, 0.853);
+  /* background-color: whitesmoke; */
+  /* opacity: 85%; */
+  border-radius: 0.2rem;
+  min-height: 28rem;
+  min-width: 30rem;
+}
+.ant-menu {
+  background-color: white !important;
+  /* opacity: 70% !important; */
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #27a6a4 !important;
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pam-engage-client/static/css/main.d63857a7.css",
+    "main.js": "/pam-engage-client/static/js/main.e674c7b7.js",
+    "static/js/453.0c9a28d8.chunk.js": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js",
+    "index.html": "/pam-engage-client/index.html",
+    "main.d63857a7.css.map": "/pam-engage-client/static/css/main.d63857a7.css.map",
+    "main.e674c7b7.js.map": "/pam-engage-client/static/js/main.e674c7b7.js.map",
+    "453.0c9a28d8.chunk.js.map": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d63857a7.css",
+    "static/js/main.e674c7b7.js"
+  ]
+}

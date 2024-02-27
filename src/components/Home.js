@@ -88,12 +88,12 @@ export default function Home() {
     let isValueCorrect = false;
     let allAnswerCorrect = true;
     tempData.map((obj) => {
-      if (obj.id === personalityNumber) {
+      if (obj.id == personalityNumber) {
         obj.questions.map((ques) => {
           if (
             values[ques.id] !== null &&
             values[ques.id] !== undefined &&
-            ques.answer.toLowerCase() === values[ques.id].toLowerCase()
+            ques.answer.toLowerCase() == values[ques.id].toLowerCase()
           ) {
             // obj.blur = false;
             isValueCorrect = true;
@@ -106,12 +106,12 @@ export default function Home() {
 
     if (isValueCorrect && allAnswerCorrect) {
       tempData.map((obj) => {
-        if (obj.id === personalityNumber) {
+        if (obj.id == personalityNumber) {
           obj.questions.map((ques) => {
             if (
               values[ques.id] !== null &&
               values[ques.id] !== undefined &&
-              ques.answer.toLowerCase() === values[ques.id].toLowerCase()
+              ques.answer.toLowerCase() == values[ques.id].toLowerCase()
             ) {
               obj.blur = false;
             }
@@ -120,7 +120,7 @@ export default function Home() {
         if (isValueCorrect) return;
       });
       setisSubmitSuccess(true);
-      if (personalityNumber === allData.length) {
+      if (personalityNumber == allData.length) {
         setisFormCompleted(true);
         setIncorrectCounter(0);
       } else {

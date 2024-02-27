@@ -12,7 +12,7 @@ function Login(props) {
   const dispatch = useDispatch();
 
   function onFinish(values) {
-    // sessionStorage.setItem('teamName', TeamName);
+    sessionStorage.setItem('teamName', teamNameLocal);
     console.log(teamNameLocal);
     dispatch(setTeamName(teamNameLocal));
     setIsLoading(true);

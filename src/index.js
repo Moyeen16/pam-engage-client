@@ -14,7 +14,7 @@ const store = configureStore();
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename={''}>
+    <BrowserRouter basename={'pam-engage-client'}>
       <App />
     </BrowserRouter>
   </Provider>

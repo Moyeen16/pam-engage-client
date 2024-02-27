@@ -92,8 +92,8 @@ function Login(props) {
                                 be no points.
                             </li>
                             <li>
-                                If you use the hints via Revel Hint option, then
-                                you will lose 50 points.
+                                If you use the hints via Reveal Hint option,
+                                then you will lose 50 points.
                             </li>
                         </ul>
                     </div>

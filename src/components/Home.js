@@ -12,24 +12,24 @@ const options = [
     value: 'Virat Kohli',
   },
   {
-    label: 'Mahendra Singh Dhoni',
-    value: 'Mahendra Singh Dhoni',
-  },
-  {
-    label: 'Ratan Naval Tata',
-    value: 'Ratan Naval Tata',
-  },
-  {
-    label: 'Kiran Mazumdar-Shaw',
-    value: 'Kiran Mazumdar-Shaw',
-  },
-  {
-    label: 'Nandan Nilekani',
-    value: 'Nandan Nilekani',
+    label: 'Ratan Tata',
+    value: 'Ratan Tata',
   },
   {
     label: 'Narayana Murthy',
     value: 'Narayana Murthy',
+  },
+  {
+    label: 'Sourav Ganguly',
+    value: 'Sourav Ganguly',
+  },
+  {
+    label: 'Indra Nooyi',
+    value: 'Indra Nooyi',
+  },
+  {
+    label: 'Satya Nadella',
+    value: 'Satya Nadella',
   },
 ];
 

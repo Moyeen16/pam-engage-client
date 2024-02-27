@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Collapse,
   Navbar,
@@ -6,9 +6,9 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
-} from "reactstrap";
-import { Link } from "react-router-dom";
-import logo from "./../assets/Icons/zs-logo.png";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import logo from './../assets/Icons/zs-logo.png';
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -38,9 +38,9 @@ export class NavMenu extends Component {
               width="50"
               height="40"
               alt="ZS Logo"
-              style={{ marginRight: "0.6rem" }}
-            />{" "}
-            Engagement Plan Prototype
+              style={{ marginRight: '0.6rem' }}
+            />{' '}
+            Find Your Leader
           </NavbarBrand>
           {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse

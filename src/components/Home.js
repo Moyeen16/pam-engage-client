@@ -211,7 +211,7 @@ export default function Home() {
                 </div>
             ) : (
                 <div>
-                    <div style={{ maxWidth: "60rem", margin: "auto" }}>
+                    <div style={{ maxWidth: "40rem", margin: "auto" }}>
                         {/* <Row
                             gutter={[8, 8]}
                             style={{ justifyContent: "center", width: "100%" }}
@@ -258,8 +258,8 @@ export default function Home() {
                                         style={{
                                             // background: "red",
 
-                                            maxHeight: "15rem",
-                                            maxWidth: "15rem",
+                                            maxHeight: "8rem",
+                                            maxWidth: "8rem",
                                             display: "flex",
                                             margin: "auto",
                                         }}

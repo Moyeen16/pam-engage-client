@@ -3,13 +3,12 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import configureStore from "./store/configureStore";
+import { store } from "./store/configureStore";
 import { Provider } from "react-redux";
 
 // const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-const store = configureStore();
 
 root.render(
     <Provider store={store}>

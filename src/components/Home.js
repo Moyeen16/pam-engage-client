@@ -7,7 +7,12 @@ import axios from "axios";
 import { QuestionCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import FormSuccess from "./FormSuccess";
 import { useDispatch, useSelector } from "react-redux";
-import { setReduxScore } from "../store/globalStore";
+import {
+    setReduxScore,
+    incrementTimeElapsed,
+    globalStore,
+    setRecordedTime,
+} from "../store/globalStore";
 
 const options = [
     {
@@ -37,6 +42,7 @@ const options = [
 ];
 
 export default function Home() {
+    const store = useSelector(globalStore);
     const [personalityNumber, setpersonalityNumber] = useState(1);
     const [selectedPersonality, setselectedPersonality] = useState(1);
     const [allData, setAllData] = useState(data);
@@ -45,6 +51,7 @@ export default function Home() {
     const [hintTextVisible, setHintTextVisible] = useState(false);
     const [questions, setQuestions] = useState([]);
     const [incorrectCounter, setIncorrectCounter] = useState(0);
+    const [startTime, setStartTime] = useState(null);
     const [score, setScore] = useState(0);
     const isDesktopOrLaptop = useMediaQuery({
         query: "(min-width: 1224px)",
@@ -53,8 +60,24 @@ export default function Home() {
     const [form] = Form.useForm();
     const scrollRef = useRef(null);
     const timeoutRef = useRef(null);
+    const counterRef = useRef(null);
     const dispatch = useDispatch();
 
+    const startQuestionnaire = () => {
+        setStartTime(new Date());
+    };
+
+    const calculateElapsedTime = () => {
+        const endTime = new Date();
+        if (startTime && endTime) {
+            const elapsedTime = endTime - startTime; // Time difference in milliseconds
+            // You can convert milliseconds to seconds, minutes, etc., as needed
+            console.log(`Elapsed time: ${elapsedTime} milliseconds`);
+            const sec = elapsedTime / 1000;
+            return Math.round(sec * 100) / 100;
+        }
+        return 0;
+    };
     useEffect(() => {
         // axios.get("GetAllData").then((response) => {
         //   console.log(response);
@@ -81,6 +104,7 @@ export default function Home() {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
         }
+
         let valueAnswers = Object.values(values);
         if (valueAnswers.includes(undefined)) {
             message.error("Please provide all inputs!");
@@ -166,6 +190,11 @@ export default function Home() {
             message.success("Correct Answer!");
             setIncorrectCounter(0);
             if (personalityNumber == allData.length) {
+                if (counterRef.current) {
+                    clearInterval(counterRef.current);
+                }
+                dispatch(setRecordedTime(calculateElapsedTime()));
+                // const timeSpan = calculateElapsedTime();
                 setisSubmitSuccess(true);
                 timeoutRef.current = setTimeout(() => {
                     setisFormCompleted(true);
@@ -181,10 +210,18 @@ export default function Home() {
         // });
     }
 
+    useEffect(() => {
+        startQuestionnaire();
+
+        counterRef.current = setInterval(() => {
+            dispatch(incrementTimeElapsed());
+        }, 1000);
+        return () => clearInterval(counterRef.current);
+    }, []);
     return (
         <div
             style={{
-                padding: "2rem",
+                padding: "1rem",
                 height: "calc(100vh - 64px)",
                 overflowY: "auto",
             }}
@@ -221,6 +258,17 @@ export default function Home() {
                             }}
                         >
                             Congratulations on completeing the quiz!
+                        </p>
+                        <p
+                            style={{
+                                marginTop: "0.5rem",
+                                textAlign: "center",
+                                // fontWeight: "500",
+                                fontSize: "0.85rem",
+                            }}
+                        >
+                            You scored {store.score} points. Time Elapsed{" "}
+                            {store.recordedTime} seconds.
                         </p>
                         <p
                             style={{

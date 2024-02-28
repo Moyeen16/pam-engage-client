@@ -218,14 +218,9 @@ export default function Home() {
         }, 1000);
         return () => clearInterval(counterRef.current);
     }, []);
+
     return (
-        <div
-            style={{
-                padding: "1rem",
-                height: "calc(100vh - 64px)",
-                overflowY: "auto",
-            }}
-        >
+        <div className="content">
             {isFormCompleted ? (
                 <div
                     style={{

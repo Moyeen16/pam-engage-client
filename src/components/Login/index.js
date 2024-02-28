@@ -31,10 +31,11 @@ function Login(props) {
                 ""
             ) : (
                 <div
-                    style={{
-                        height: "calc(100vh - 64px)",
-                        overflowY: "auto",
-                    }}
+                    className="content"
+                    // style={{
+                    //     height: "calc(100vh - 64px)",
+                    //     overflowY: "auto",
+                    // }}
                 >
                     <div
                         style={{

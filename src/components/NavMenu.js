@@ -13,7 +13,7 @@ export default function NavMenu() {
             applicationName="Find Your Leader"
             logo={logo}
             extra={
-                <div style={{ width: "6rem" }}>
+                <div style={{ width: "5rem" }}>
                     <div
                         style={{
                             display: "flex",
@@ -38,7 +38,7 @@ export default function NavMenu() {
                             size={24}
                             style={{ color: "#ec7200", marginRight: "0.2rem" }}
                         />
-                        {store.score} points
+                        {store.score} pts
                     </div>
                 </div>
             }

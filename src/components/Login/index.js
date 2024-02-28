@@ -56,6 +56,7 @@ function Login(props) {
                                         onBlurTeamNameLocal(e.target.value);
                                     }}
                                     onPressEnter={onFinish}
+                                    style={{ fontSize: "25px" }}
                                 />
                             </div>
                             <Button primary onClick={onFinish} small>

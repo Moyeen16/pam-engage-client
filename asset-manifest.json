@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pam-engage-client/static/css/main.4e376249.css",
-    "main.js": "/pam-engage-client/static/js/main.3b72feb3.js",
+    "main.js": "/pam-engage-client/static/js/main.71a4177f.js",
     "static/js/453.0c9a28d8.chunk.js": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js",
     "static/media/third-rank.png": "/pam-engage-client/static/media/third-rank.ed88fb87205fce90bcf8.png",
     "static/media/second-rank.png": "/pam-engage-client/static/media/second-rank.4cc733f2c8ff8c795d38.png",
@@ -9,11 +9,11 @@
     "static/media/zs-logo-small.png": "/pam-engage-client/static/media/zs-logo-small.854a0937420036a7c02b.png",
     "index.html": "/pam-engage-client/index.html",
     "main.4e376249.css.map": "/pam-engage-client/static/css/main.4e376249.css.map",
-    "main.3b72feb3.js.map": "/pam-engage-client/static/js/main.3b72feb3.js.map",
+    "main.71a4177f.js.map": "/pam-engage-client/static/js/main.71a4177f.js.map",
     "453.0c9a28d8.chunk.js.map": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e376249.css",
-    "static/js/main.3b72feb3.js"
+    "static/js/main.71a4177f.js"
   ]
 }

@@ -11,7 +11,7 @@ const AppRoutes = [
         path: "/home",
         element: <Home />,
     },
-    { path: "leaderboard", element: <Leaderboard /> },
+    { path: "/leaderboard", element: <Leaderboard /> },
 ];
 
 export default AppRoutes;

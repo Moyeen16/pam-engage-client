@@ -12,11 +12,14 @@ function Login(props) {
     const dispatch = useDispatch();
 
     function onFinish(values) {
-        sessionStorage.setItem("teamName", teamNameLocal);
-        console.log(teamNameLocal);
-        dispatch(setTeamName(teamNameLocal));
-        setIsLoading(true);
-        navigate("/home");
+        if (teamNameLocal === "Admin") navigate("/leaderboard");
+        else {
+            sessionStorage.setItem("teamName", teamNameLocal);
+            console.log(teamNameLocal);
+            dispatch(setTeamName(teamNameLocal));
+            setIsLoading(true);
+            navigate("/home");
+        }
     }
 
     const onBlurTeamNameLocal = (e) => {

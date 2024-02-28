@@ -102,6 +102,7 @@ export default function Leaderboard() {
                                     error: errorPasscode,
                                     message: "Incorrect Passcode",
                                 }}
+                                onPressEnter={(e) => handleSubmit()}
                             />
                         </div>
                         <Button primary small password onClick={handleSubmit}>

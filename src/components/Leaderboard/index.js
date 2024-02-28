@@ -54,7 +54,14 @@ export default function Leaderboard() {
         if (showLeaderboard) fetchData();
     }, [showLeaderboard]);
     return (
-        <div style={{ maxWidth: "40rem", margin: "auto", padding: "2rem" }}>
+        <div
+            style={{
+                maxWidth: "40rem",
+                margin: "auto",
+                marginTop: "64px",
+                padding: "2rem",
+            }}
+        >
             {showLeaderboard ? (
                 <>
                     <div style={{ fontSize: "1.2rem", fontWeight: "500" }}>

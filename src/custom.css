@@ -40,8 +40,15 @@ ol {
 }
 
 .content {
+    margin-top: 64px;
     padding: 1rem;
-    height: calc(100dvh - 64px);
+    /* height: calc(100% - 64px);
     height: calc(-webkit-fill-available - 64px);
+    overflow-y: auto; */
+}
+body {
+    height: 100%;
+    margin: 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
 }

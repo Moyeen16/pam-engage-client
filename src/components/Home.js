@@ -153,9 +153,13 @@ export default function Home() {
                             obj.blur = false;
 
                             if (scrollRef.current) {
-                                scrollRef.current.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
+                                // scrollRef.current.scrollIntoView({
+                                //     behavior: "smooth",
+                                //     block: "end",
+                                // });
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth", // Optional: Adds smooth scrolling behavior
                                 });
                             }
 
@@ -219,8 +223,9 @@ export default function Home() {
         return () => clearInterval(counterRef.current);
     }, []);
 
+    const ht = window.innerHeight;
     return (
-        <div className="content">
+        <div className="content" style={{ height: `calc(${ht}px - 64px)` }}>
             {isFormCompleted ? (
                 <div
                     style={{
@@ -279,7 +284,13 @@ export default function Home() {
                 </div>
             ) : (
                 <div>
-                    <div style={{ maxWidth: "40rem", margin: "auto" }}>
+                    <div
+                        style={{
+                            maxWidth: "40rem",
+                            margin: "auto",
+                            padding: "1rem",
+                        }}
+                    >
                         {/* <Row
                             gutter={[8, 8]}
                             style={{ justifyContent: "center", width: "100%" }}

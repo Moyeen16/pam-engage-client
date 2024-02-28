@@ -185,7 +185,7 @@ export default function Home() {
         <div
             style={{
                 padding: "2rem",
-                maxHeight: "calc(100vh - 64px)",
+                height: "calc(100vh - 64px)",
                 overflowY: "auto",
             }}
         >

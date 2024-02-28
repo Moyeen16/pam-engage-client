@@ -1,4 +1,4 @@
-/* Provide sufficient contrast against white background */
+/* Provide sufficient contrast against white background
 a {
   color: #0366d6;
 }
@@ -15,4 +15,17 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+} */
+
+/* Restore bullets for unordered lists */
+html {
+    font-size: 16px;
+}
+ul {
+    list-style-type: disc;
+}
+
+/* Restore numbers for ordered lists */
+ol {
+    list-style-type: decimal;
 }

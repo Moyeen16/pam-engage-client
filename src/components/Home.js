@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { data } from "./../DummyData/data";
-import { Button, Col, Form, Input, Row, Select, Tooltip, message } from "antd";
+import { Col, Form, Input, Row, Tooltip, message } from "antd";
+import { Button, Dropdown } from "ms-custom-react-components-library";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import { QuestionCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import FormSuccess from "./FormSuccess";
+import { useDispatch, useSelector } from "react-redux";
+import { setReduxScore } from "../store/globalStore";
 
 const options = [
     {
@@ -42,6 +45,7 @@ export default function Home() {
     const [hintTextVisible, setHintTextVisible] = useState(false);
     const [questions, setQuestions] = useState([]);
     const [incorrectCounter, setIncorrectCounter] = useState(0);
+    const [score, setScore] = useState(0);
     const isDesktopOrLaptop = useMediaQuery({
         query: "(min-width: 1224px)",
     });
@@ -49,6 +53,7 @@ export default function Home() {
     const [form] = Form.useForm();
     const scrollRef = useRef(null);
     const timeoutRef = useRef(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         // axios.get("GetAllData").then((response) => {
@@ -130,6 +135,22 @@ export default function Home() {
                                 });
                             }
 
+                            //Score Calculation
+                            if (hintTextVisible) {
+                                if (incorrectCounter == 0) {
+                                    setScore((prev) => prev + 50);
+                                    dispatch(setReduxScore(score + 50));
+                                }
+                            } else {
+                                if (incorrectCounter == 0) {
+                                    setScore((prev) => prev + 100);
+                                    dispatch(setReduxScore(score + 100));
+                                } else if (incorrectCounter == 1) {
+                                    setScore((prev) => prev + 50);
+                                    dispatch(setReduxScore(score + 50));
+                                }
+                            }
+
                             //For increment if answer is correct
                             setIncorrectCounter(0);
                             setpersonalityNumber((prev) => prev + 1);
@@ -142,21 +163,20 @@ export default function Home() {
                 if (isValueCorrect) return;
             });
             // setisSubmitSuccess(true);
+            message.success("Correct Answer!");
+            setIncorrectCounter(0);
             if (personalityNumber == allData.length) {
                 setisSubmitSuccess(true);
                 timeoutRef.current = setTimeout(() => {
                     setisFormCompleted(true);
-                    setIncorrectCounter(0);
                 }, 3000);
-            } else {
-                message.success("Correct Answer!");
-                setIncorrectCounter(0);
             }
         } else {
             message.error("Incorrect response! Please try again.");
             setIncorrectCounter((prev) => prev + 1);
         }
         setAllData([...tempData]);
+        console.log("FORM", form.getFieldValue());
         // } else message.error("Unable to save data! Please try again.");
         // });
     }
@@ -164,8 +184,8 @@ export default function Home() {
     return (
         <div
             style={{
-                paddingInline: "3rem",
-                maxHeight: "85vh",
+                padding: "2rem",
+                maxHeight: "calc(100vh - 64px)",
                 overflowY: "auto",
             }}
         >
@@ -179,10 +199,15 @@ export default function Home() {
                     }}
                 >
                     <FormSuccess />
-                    <div>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
                         <CheckCircleOutlined
                             style={{
-                                marginInline: "10rem",
                                 fontSize: "10rem",
                                 color: "#27a6a4",
                                 // textAlign: "right",
@@ -291,13 +316,20 @@ export default function Home() {
                                 {questions.map((ques) => {
                                     return (
                                         <div>
-                                            <p>{ques.text}</p>
+                                            <p style={{ marginBottom: "1rem" }}>
+                                                {ques.text}
+                                            </p>
                                             <Form.Item name={ques.id}>
-                                                <Select
+                                                <Dropdown
+                                                    options={options}
+                                                    placeholder="Select Answer"
+                                                    noMaxWidth
+                                                />
+                                                {/* <Select
                                                     placeholder="Select Answer"
                                                     options={options}
                                                     // style={{ borderColor: "#27a6a4", color: "#27a6a4" }}
-                                                />
+                                                /> */}
                                             </Form.Item>
                                         </div>
                                     );
@@ -349,28 +381,14 @@ export default function Home() {
                                         marginTop: "2rem",
                                         display: "flex",
                                         justifyContent: "end",
+                                        gap: "1rem",
                                     }}
                                 >
                                     <Button
-                                        type="primary"
+                                        primary
                                         disabled={
                                             isSubmitSuccess ||
                                             incorrectCounter >= 2
-                                        }
-                                        style={
-                                            isSubmitSuccess ||
-                                            incorrectCounter >= 2
-                                                ? {
-                                                      marginRight: "1rem",
-                                                      backgroundColor:
-                                                          "#efefef",
-                                                      color: "#27a6a4",
-                                                  }
-                                                : {
-                                                      marginRight: "1rem",
-                                                      backgroundColor:
-                                                          "#27a6a4",
-                                                  }
                                         }
                                         htmlType="submit"
                                     >
@@ -378,6 +396,7 @@ export default function Home() {
                                     </Button>
                                     {incorrectCounter === 2 && (
                                         <Button
+                                            transparent
                                             onClick={() => {
                                                 // if (!isSubmitSuccess) {
                                                 //   message.error("Please provide an input first!");
@@ -395,10 +414,6 @@ export default function Home() {
                                                 personalityNumber ==
                                                 allData.length
                                             }
-                                            style={{
-                                                borderColor: "#27a6a4",
-                                                color: "#27a6a4",
-                                            }}
                                         >
                                             Next
                                         </Button>

@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/pam-engage-client/static/css/main.a61aed57.css",
-    "main.js": "/pam-engage-client/static/js/main.99946412.js",
+    "main.css": "/pam-engage-client/static/css/main.ffb2ab98.css",
+    "main.js": "/pam-engage-client/static/js/main.c8f5d5ba.js",
     "static/js/453.0c9a28d8.chunk.js": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js",
     "static/media/third-rank.png": "/pam-engage-client/static/media/third-rank.ed88fb87205fce90bcf8.png",
     "static/media/second-rank.png": "/pam-engage-client/static/media/second-rank.4cc733f2c8ff8c795d38.png",
     "static/media/first-rank.png": "/pam-engage-client/static/media/first-rank.88880093667c755c68b0.png",
     "static/media/zs-logo-small.png": "/pam-engage-client/static/media/zs-logo-small.854a0937420036a7c02b.png",
     "index.html": "/pam-engage-client/index.html",
-    "main.a61aed57.css.map": "/pam-engage-client/static/css/main.a61aed57.css.map",
-    "main.99946412.js.map": "/pam-engage-client/static/js/main.99946412.js.map",
+    "main.ffb2ab98.css.map": "/pam-engage-client/static/css/main.ffb2ab98.css.map",
+    "main.c8f5d5ba.js.map": "/pam-engage-client/static/js/main.c8f5d5ba.js.map",
     "453.0c9a28d8.chunk.js.map": "/pam-engage-client/static/js/453.0c9a28d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a61aed57.css",
-    "static/js/main.99946412.js"
+    "static/css/main.ffb2ab98.css",
+    "static/js/main.c8f5d5ba.js"
   ]
 }

@@ -58,6 +58,13 @@ export const appReduxSlice = createSlice({
         setRecordedTime: (state, action) => {
             state.recordedTime = action.payload;
         },
+        resetReduxScore: (state, action) => {
+            state.score = 0;
+        },
+        resetRecordedTime: (state, action) => {
+            state.timeElapsed = 0;
+            state.recordedTime = 0;
+        },
     },
 });
 
@@ -66,6 +73,8 @@ export const {
     setReduxScore,
     incrementTimeElapsed,
     setRecordedTime,
+    resetReduxScore,
+    resetRecordedTime,
 } = appReduxSlice.actions;
 
 export const globalStore = (state) => state.app_reducer;

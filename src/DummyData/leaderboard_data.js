@@ -19,4 +19,9 @@ export const leaderboardData = [
         rank: 4,
         score: 200,
     },
+    {
+        teamName: "Team 5",
+        rank: 5,
+        score: 200,
+    },
 ];

@@ -8,7 +8,7 @@ import { InputCheckedOutline } from "@styled-icons/typicons/InputCheckedOutline"
 import { useLocation } from "react-router-dom";
 export default function NavMenu() {
     const location = useLocation();
-    console.log(location.pathname);
+
     const store = useSelector(globalStore);
 
     return (

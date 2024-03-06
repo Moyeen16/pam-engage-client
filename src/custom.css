@@ -22,21 +22,11 @@ html {
     font-size: 16px;
 }
 ul {
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
+    list-style: disc !important;
 }
 
 ol {
-    list-style-type: decimal;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
+    list-style: decimal !important;
 }
 
 .content {
@@ -51,4 +41,8 @@ body {
     margin: 0;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+}
+
+table .text-sm {
+    font-size: 17px;
 }

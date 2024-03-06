@@ -3,7 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getTeamName, setTeamName } from "../../store/globalStore";
+import {
+    getTeamName,
+    resetRecordedTime,
+    resetReduxScore,
+    setTeamName,
+} from "../../store/globalStore";
 
 function Login(props) {
     const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +20,7 @@ function Login(props) {
         if (teamNameLocal === "Admin") navigate("/leaderboard");
         else {
             sessionStorage.setItem("teamName", teamNameLocal);
-            console.log(teamNameLocal);
+
             dispatch(setTeamName(teamNameLocal));
             setIsLoading(true);
             navigate("/home");
@@ -25,9 +30,12 @@ function Login(props) {
     const onBlurTeamNameLocal = (e) => {
         if (e) {
             setTeamNameLocal(e);
-            console.log(e);
         }
     };
+    useEffect(() => {
+        dispatch(resetRecordedTime());
+        dispatch(resetReduxScore());
+    }, []);
     return (
         <div>
             {isLoading ? (
@@ -79,10 +87,6 @@ function Login(props) {
                         </p>
                         <div style={{ padding: "0 1rem", fontSize: "0.85rem" }}>
                             <ul>
-                                <li>
-                                    There are 6 questions related to famous
-                                    personalities in this quiz.
-                                </li>
                                 <li>
                                     You need to choose an option from dropdown
                                     to reveal the picture of the personality.

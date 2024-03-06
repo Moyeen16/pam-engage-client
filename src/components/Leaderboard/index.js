@@ -4,6 +4,10 @@ import { leaderboardData } from "../../DummyData/leaderboard_data";
 import first from "../../assets/Icons/first-rank.png";
 import second from "../../assets/Icons/second-rank.png";
 import third from "../../assets/Icons/third-rank.png";
+import fourth from "../../assets/Icons/fourth-rank.png";
+import fifth from "../../assets/Icons/fifth-rank.png";
+import axios from "axios";
+import { LineWave } from "react-loader-spinner";
 export default function Leaderboard() {
     const PASSCODE_TEXT = "abc123";
     const [showLeaderboard, setShowLeaderboard] = React.useState(false);
@@ -11,6 +15,7 @@ export default function Leaderboard() {
     const [tableData, setTableData] = React.useState();
     const [passcodeText, setPasscodeText] = React.useState();
     const [errorPasscode, setErrorPasscode] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
     const headers = [
         {
             key: "rank",
@@ -19,28 +24,106 @@ export default function Leaderboard() {
             align: "center",
             widthPercentage: 5,
             customComponent: (data) => {
-                if (data === 1) return <img src={first} />;
-                else if (data === 2) return <img src={second} />;
-                else if (data === 3) return <img src={third} />;
-                else return data;
+                if (data === 1)
+                    return (
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img src={first} style={{ height: "2rem" }} />
+                        </div>
+                    );
+                else if (data === 2)
+                    return (
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img src={second} style={{ height: "2rem" }} />
+                        </div>
+                    );
+                else if (data === 3)
+                    return (
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img src={third} style={{ height: "2rem" }} />
+                        </div>
+                    );
+                else if (data === 4)
+                    return (
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img src={fourth} style={{ height: "1.6rem" }} />
+                        </div>
+                    );
+                else if (data === 5)
+                    return (
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img src={fifth} style={{ height: "1.5rem" }} />
+                        </div>
+                    );
+                else return <div>{data}</div>;
             },
         },
         {
-            key: "teamName",
+            key: "teammame",
             title: "TEAM NAME",
-            dataIndex: "teamName",
-            widthPercentage: 70,
+            dataIndex: "teamname",
+            widthPercentage: 50,
         },
 
         {
-            key: "score",
+            key: "scores",
             title: "SCORE",
-            dataIndex: "score",
+
+            dataIndex: "scores",
+        },
+        {
+            key: "responsetime",
+            title: "TIME",
+            dataIndex: "responsetime",
+
+            customComponent: (data) => data + " s",
         },
     ];
     const fetchData = async () => {
-        //API CALL HERE
-        setTableData({ headers: headers, data: leaderboardData });
+        setLoading(true);
+        axios
+            .get(
+                "https://pam-engagement-server-renderprod.onrender.com/leaderboardData"
+            )
+            .then((response) => {
+                if (response.status === 200) {
+                    setLoading(false);
+                    const temp = [];
+                    response.data.map((el, index) =>
+                        temp.push({ ...el, rank: index + 1 })
+                    );
+                    setTableData({ headers: headers, data: temp });
+                }
+            });
     };
     const passwordToggle = (toggleValue) => {
         setShowPassword(toggleValue);
@@ -50,9 +133,11 @@ export default function Leaderboard() {
         if (passcodeText !== PASSCODE_TEXT) setErrorPasscode(true);
         else setShowLeaderboard(true);
     };
+
     React.useEffect(() => {
         if (showLeaderboard) fetchData();
     }, [showLeaderboard]);
+    const ht = window.innerHeight;
     return (
         <div
             style={{
@@ -63,12 +148,36 @@ export default function Leaderboard() {
             }}
         >
             {showLeaderboard ? (
-                <>
-                    <div style={{ fontSize: "1.2rem", fontWeight: "500" }}>
-                        Leaderboard
+                loading ? (
+                    <div
+                        style={{
+                            height: `calc(${ht}px - 64px - 4rem)`,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <LineWave
+                            visible={true}
+                            height="200"
+                            width="200"
+                            color="#27a6a4"
+                            ariaLabel="line-wave-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            firstLineColor=""
+                            middleLineColor=""
+                            lastLineColor=""
+                        />
                     </div>
-                    {tableData && <Table tableData={tableData} />}
-                </>
+                ) : (
+                    <>
+                        <div style={{ fontSize: "1.8rem", fontWeight: "500" }}>
+                            Leaderboard
+                        </div>
+                        {tableData && <Table tableData={tableData} />}
+                    </>
+                )
             ) : (
                 <div>
                     <p style={{ marginBottom: "1rem" }}>

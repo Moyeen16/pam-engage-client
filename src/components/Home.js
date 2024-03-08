@@ -402,7 +402,7 @@ export default function Home() {
                                                     style={{
                                                         marginInline: "0.5rem",
                                                         filter: item.blur
-                                                            ? "blur(16px) grayscale(100%)"
+                                                            ? "blur(10px) grayscale(100%)"
                                                             : "",
                                                         // filter: "grayscale(100%)",
                                                         width: "100%",
